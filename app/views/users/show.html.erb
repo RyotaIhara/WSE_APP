@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<h1 class="label">ユーザーの詳細</h1>
+
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to "ユーザ一覧へ", users_path %>
+
+<table class="table">
+    <tr>
+        <th>ユーザー名</th>
+        <td><%= @user.name %></td>
+    </tr>
+    <tr>
+        <th>フルネーム</th>
+        <td><%= @user.full_name %></td>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+    </tr>
+    <tr>
+        <th>性別</th>
+        <td><%= @user.sex %></td>
+    </tr>
+    <tr>
+        <th>管理者</th>
+        <td><%= @user.administrator? ? "○" : "-" %></td>
+    </tr>
+</table>
