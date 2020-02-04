@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: ユーザー名
+        full_name: 氏名
+        sex: 性別
+        sex_1: 男
+        sex_2: 女
+        email: メールアドレス
+        administrator: 管理者
+        password: パスワード
+        password_confirmation: パスワード（確認）
