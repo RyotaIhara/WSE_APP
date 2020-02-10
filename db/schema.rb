@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_135040) do
+ActiveRecord::Schema.define(version: 2020_02_10_105646) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "competition"
+    t.date "scheduled_date"
+    t.string "match_team"
+    t.string "place"
+    t.integer "user_id"
+    t.integer "number_applicants"
+    t.integer "cost"
+    t.text "other_necessary"
+    t.text "note"
+    t.boolean "cancel_flg", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -24,4 +40,5 @@ ActiveRecord::Schema.define(version: 2020_02_03_135040) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "events", "users"
 end

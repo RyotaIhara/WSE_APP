@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<h1 class="label">イベント一覧</h1>
+
+<div><%= link_to '企画の新規作成', new_event_path %></div>
+
+<table class="table">
+    <tr>
+        <th>競技</th>
+        <th>予定日</th>
+        <th>試合チーム</th>
+        <th>場所</th>
+        <th>募集人数</th>
+        <th></th>
+    </tr>
+        <% @events.each do |event| %>
+    <tr>
+        <td><%= event.competition %></td>
+        <td><%= event.scheduled_date %></td>
+        <td><%= event.match_team %></td>
+        <td><%= event.place %></td>
+        <td><%= event.number_applicants %></td>
+        <td><%= link_to '詳細', event %></td>
+    </tr>
+        <% end %>
+</table>

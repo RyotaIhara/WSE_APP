@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<h1 class="label">企画の詳細</h1>
+
+<%= link_to '編集', edit_event_path(@event) %> |
+<%= link_to "企画一覧へ", events_path %>
+
+<table class="table">
+    <tr>
+        <th>種目</th>
+        <td><%= @event.competition %></td>
+    </tr>
+    <tr>
+        <th>予定日</th>
+        <td><%= @event.scheduled_date %></td>
+    </tr>
+    <tr>
+        <th>試合チーム</th>
+        <td><%= @event.match_team %></td>
+    </tr>
+    <tr>
+        <th>場所</th>
+        <td><%= @event.place %></td>
+    </tr>
+    <tr>
+        <th>募集人数</th>
+        <td><%= @event.number_applicants %></td>
+    </tr>
+    <tr>
+        <th>主催者</th>
+        <td><%= @event.user.name %></td>
+    </tr>
+    <tr>
+        <th>費用</th>
+        <td><%= @event.cost %></td>
+    </tr>
+    <tr>
+        <th>その他必要なもの</th>
+        <td><%= @event.other_necessary %></td>
+    </tr>
+    <tr>
+        <th>備考</th>
+        <td><%= @event.note %></td>
+    </tr>
+    <tr>
+        <th>操作</th>
+        <td><%= link_to '編集', edit_event_path(@event) %>
+        <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+        <%= link_to '参加', participant_path(event_id: @event.id) %>
+        <%= link_to '不参加', non_participant_path(event_id: @event.id) %></td>
+    </tr>
+</table>
