@@ -45,7 +45,6 @@
         <th>操作</th>
         <td><%= link_to '編集', edit_event_path(@event) %>
         <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' } %>
-        <%= link_to '参加', participant_path(event_id: @event.id) %>
-        <%= link_to '不参加', non_participant_path(event_id: @event.id) %></td>
+        </td>
     </tr>
 </table>
