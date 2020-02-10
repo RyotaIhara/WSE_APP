@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" style="height: 450px;">
+        <div class="carousel-item active">
+            <%= image_tag 'football-3471402_1280.jpg' %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag 'freerider-498473_1280.jpg' %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag 'quarterback-67701_1280.jpg' %>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
 <h1 class="label">イベント一覧</h1>
 
 <div><%= link_to '企画の新規作成', new_event_path %></div>

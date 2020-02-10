@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WSEApp</title>
+    <title>Togethers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,46 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand appName" href="#">Togethers</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mr-sm-2" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">イベント検索 </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">申し込み中のイベント</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">過去に参加したイベント</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                主催者向け
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">主催中のイベント一覧</a>
+                <a class="dropdown-item" href="#">新しいイベントの追加</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary" href="#">ログイン</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary newRegister" href="#">新規登録</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <%= yield %>
+
+    </div>
   </body>
 </html>
