@@ -15,7 +15,11 @@ class User < ApplicationRecord
         presence: true,
         uniqueness: true,
         length: { maximum: 50 },
+        length: { minimum: 8 },
         format: { with: VALID_EMAIL_REGEX }
+
+    validates :sex, 
+        presence: true
 
     VALID_PASSWORD_REGEX = /(?=.*\d+.*)(?=.*[a-zA-Z]+.*).*[!@#$%]+.*/
     validates :password,
