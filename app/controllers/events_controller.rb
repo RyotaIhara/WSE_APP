@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-    before_action :require_login
 
     #メイン画面
     def main

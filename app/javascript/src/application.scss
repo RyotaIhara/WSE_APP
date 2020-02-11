@@ -15,6 +15,9 @@
   background-color: #99CCFF;
   border-color: #99CCFF;
 }
+.dropdown-menu {
+  width: 200px;
+}
 
 //検索フォーム
 .searcForm {
@@ -33,4 +36,10 @@
 //イベント
 #recommendEvent {
   text-align: center;
+}
+
+//フォーム
+.formTitle {
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
