@@ -1,9 +1,14 @@
 class EventsController < ApplicationController
+  #メイン画面
+  def main
+  end
+
   #一覧表示
   def index
     @events = Event.all
   end
 
+  #自分主催のイベント
   def myEvent
       @events = Event.where(user_id: current_user.id)
   end
