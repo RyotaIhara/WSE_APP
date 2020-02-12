@@ -4,6 +4,8 @@
 <%= link_to '編集', edit_event_path(@event) %> |
 <%= link_to "企画一覧へ", events_path %>
 
+<p><%= image_tag @event.image_url %></p>
+
 <table class="table">
     <tr>
         <th>種目</th>

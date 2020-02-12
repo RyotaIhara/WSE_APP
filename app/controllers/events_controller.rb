@@ -82,7 +82,8 @@ class EventsController < ApplicationController
         :number_applicants, 
         :cost, 
         :other_necessary, 
-        :note
+        :note,
+        :image
         )
     end
 
