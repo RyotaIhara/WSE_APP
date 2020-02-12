@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+    before_action :require_login, only: [:new, :myEvent, :edit, :create, :update, :destroy]
 
     #メイン画面
     def main
@@ -6,7 +7,7 @@ class EventsController < ApplicationController
 
     #一覧表示
     def index
-    @events = Event.all
+        @events = Event.all
     end
 
     #自分主催のイベント
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         @event.user_id = 1
         if @event.save
-            redirect_to :events, notice: "企画を登録しました。"
+            redirect_to @event, notice: "企画を登録しました。"
         else
             render "new"
         end
@@ -55,7 +56,7 @@ class EventsController < ApplicationController
     def destroy
         @event = Event.find(params[:id])
         @event.destroy
-        redirect_to :events, notice: "企画を削除しました。"
+        redirect_to :my_event, notice: "企画を削除しました。"
     end
 
     #イベント中止
