@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     #メイン画面
     def main
         @events = Event.all
+        @homeEvents = Event.all
     end
 
     #一覧表示
