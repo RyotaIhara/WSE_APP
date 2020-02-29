@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<h1 class="label">検索結果</h1>
+
+<% @events.each do |event| %>
+    <div class="card mb-3" id="searchResultCard">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <%= image_tag event.image.to_s, id: 'searchResultImage' %>
+            </div>
+            <div class="col-md-7">
+            <div class="card-body">
+                <h4 class="card-title"><%= event.competition %></h4>
+                <p class="card-text" id="card-text"><label>試合チーム：</label><%= event.match_team %></p>
+                <p class="card-text" id="card-text"><label>予定日：</label><%= event.scheduled_date %></p>
+                <p class="card-text" id="card-text"><label>場所：</label><%= event.place %></p>
+            </div>
+            </div>
+            <div class="col-md-2">
+                <%= link_to '詳細を見る', event, :class => 'btn btn-primary',:style=>"position: absolute; bottom: 10px" %>
+            </div>
+        </div>
+    </div>
+<% end %>

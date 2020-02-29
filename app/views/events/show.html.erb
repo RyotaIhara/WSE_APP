@@ -5,7 +5,7 @@
 
 <p><%= image_tag @event.image_url, :size =>'840x500' %></p>
 
-<table class="table">
+<table class="table detail-table">
     <tr>
         <th>種目</th>
         <td><%= @event.competition %></td>
@@ -42,13 +42,10 @@
         <th>備考</th>
         <td><%= @event.note %></td>
     </tr>
-    <tr>
-        <!--ログインユーザーと主催者が一致する場合のみ表示-->
-        <% if @event.user_id == current_user.id %>
-            <th>操作</th>
-            <td><%= link_to '編集', edit_event_path(@event), :class => 'btn btn-primary' %>
-            <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' }, :class => 'btn btn-primary' %>
-            </td>
-        <% end %>
-    </tr>
 </table>
+
+<!--ログインユーザーと主催者が一致する場合のみ表示-->
+<% if @event.user_id == current_user.id %>
+    <%= link_to '編集', edit_event_path(@event), :class => 'btn btn-primary' %>
+    <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' }, :class => 'btn btn-primary' %>
+<% end %>

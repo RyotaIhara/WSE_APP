@@ -12,6 +12,11 @@ class EventsController < ApplicationController
         @events = Event.all
     end
 
+    #検索
+    def search
+        @events = Event.where(['competition LIKE ? OR match_team LIKE ?', "%#{params[:search_key]}%", "%#{params[:search_key]}%"])
+    end
+
     #自分主催のイベント
     def myEvent
         @events = Event.where(user_id: current_user.id)

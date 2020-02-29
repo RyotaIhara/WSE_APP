@@ -26,14 +26,14 @@
 <!--スライドショー終了-->
 
 <!--検索フォーム開始-->
-<form class="form-inline searcForm">
+<%= form_with url:'/search_event', method: :get, local: true, class: 'form-inline searcForm' do |f| %>
     <div class="col-2"></div>
     <div class="col-8">
-        <input class="form-control mr-sm-2" id="inputBox" type="search" placeholder="競技や試合チーム、場所などを入力してください" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit">検索</button>
+        <%= f.text_field :search_key, :class => 'form-control mr-sm-2', :id => 'inputBox', :placeholder => '競技や試合チーム、場所などを入力してください' %>
+        <%= f.submit '検索', :class => 'btn btn-outline-success my-2 my-sm-0', :id => 'searchButton' %>
     </div>
     <div class="col-2"></div>
-</form>
+<% end %>
 <hr>
 <h1 class="label" id="recommendEvent">おすすめのイベント</h1>
 <!--検索フォーム終了-->
