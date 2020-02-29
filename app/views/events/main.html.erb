@@ -40,36 +40,20 @@
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <%= image_tag 'main/freerider-498473_1280.jpg', :height => 220 %>
-                <div class="card-body">
-                    <h4 class="card-title">スダンダードコース</h4>
-                    <p class="card-text">ホームページ作成・Web集客を一通り習得したい方向けです。</p>
-                    <a href="#" class="btn btn-primary">詳細を見る</a>
+            <% @events.each do |event| %>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <%= image_tag event.image.to_s, :height =>'220' %>
+                        <div class="card-body">
+                            <h4 class="card-title"><%= event.competition %></h4>
+                            <p class="card-text" id="card-text"><label>試合チーム：</label><%= event.match_team %></p>
+                            <p class="card-text" id="card-text"><label>予定日：</label><%= event.scheduled_date %></p>
+                            <p class="card-text" id="card-text"><label>場所：</label><%= event.place %></p>
+                            <%= link_to '詳細を見る', event, :class => 'btn btn-primary' %>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <%= image_tag 'main/freerider-498473_1280.jpg', :height => 220 %>
-                <div class="card-body">
-                    <h4 class="card-title">スダンダードコース</h4>
-                    <p class="card-text">ホームページ作成・Web集客を一通り習得したい方向けです。</p>
-                    <a href="#" class="btn btn-primary">詳細を見る</a>
-                </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <%= image_tag 'main/freerider-498473_1280.jpg', :height => 220 %>
-                <div class="card-body">
-                    <h4 class="card-title">スダンダードコース</h4>
-                    <p class="card-text">ホームページ作成・Web集客を一通り習得したい方向けです。</p>
-                    <a href="#" class="btn btn-primary">詳細を見る</a>
-                </div>
-            </div>
-          </div>
+            <% end %>
         </div>
     </div>
 </div>

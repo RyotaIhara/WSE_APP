@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
     #メイン画面
     def main
+        @events = Event.all
     end
 
     #一覧表示

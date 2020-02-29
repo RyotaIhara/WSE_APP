@@ -4,7 +4,7 @@
 <%= link_to '編集', edit_event_path(@event) %> |
 <%= link_to "企画一覧へ", events_path %>
 
-<p><%= image_tag @event.image_url %></p>
+<p><%= image_tag @event.image_url, :size =>'840x500' %></p>
 
 <table class="table">
     <tr>
@@ -25,7 +25,7 @@
     </tr>
     <tr>
         <th>募集人数</th>
-        <td><%= @event.number_applicants %></td>
+        <td><%= @event.number_applicants %>人</td>
     </tr>
     <tr>
         <th>主催者</th>
@@ -33,7 +33,7 @@
     </tr>
     <tr>
         <th>費用</th>
-        <td><%= @event.cost %></td>
+        <td><%= @event.cost %>円</td>
     </tr>
     <tr>
         <th>その他必要なもの</th>
