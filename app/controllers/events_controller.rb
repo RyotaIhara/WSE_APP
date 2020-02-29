@@ -35,7 +35,7 @@ class EventsController < ApplicationController
     #新規作成
     def create
         @event = Event.new(event_params)
-        @event.user_id = 1
+        @event.user_id = current_user.id
         if @event.save
             redirect_to @event, notice: "企画を登録しました。"
         else

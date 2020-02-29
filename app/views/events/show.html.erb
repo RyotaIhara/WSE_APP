@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1 class="label">企画の詳細</h1>
 
-<%= link_to '編集', edit_event_path(@event) %> |
-<%= link_to "企画一覧へ", events_path %>
+<%= link_to "企画一覧へ", events_path, :class => 'btn btn-primary' %>
 
 <p><%= image_tag @event.image_url, :size =>'840x500' %></p>
 
@@ -44,9 +43,12 @@
         <td><%= @event.note %></td>
     </tr>
     <tr>
-        <th>操作</th>
-        <td><%= link_to '編集', edit_event_path(@event) %>
-        <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' } %>
-        </td>
+        <!--ログインユーザーと主催者が一致する場合のみ表示-->
+        <% if @event.user_id == current_user.id %>
+            <th>操作</th>
+            <td><%= link_to '編集', edit_event_path(@event), :class => 'btn btn-primary' %>
+            <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' }, :class => 'btn btn-primary' %>
+            </td>
+        <% end %>
     </tr>
 </table>

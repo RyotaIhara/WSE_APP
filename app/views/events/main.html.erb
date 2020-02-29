@@ -2,15 +2,17 @@
 <!--スライドショー開始-->
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" style="height: 450px;">
-        <div class="carousel-item active">
-            <%= image_tag 'main/football-3471402_1280.jpg' %>
-        </div>
-        <div class="carousel-item">
-            <%= image_tag 'main/freerider-498473_1280.jpg' %>
-        </div>
-        <div class="carousel-item">
-            <%= image_tag 'main/quarterback-67701_1280.jpg' %>
-        </div>
+        <% @homeEvents.each_with_index do |event, i| %>
+            <% if i == 0 %>
+                <div class="carousel-item active">
+                    <%= image_tag event.image.to_s %>
+                </div>
+            <% else %>
+                <div class="carousel-item">
+                    <%= image_tag event.image.to_s %>
+                </div>
+            <% end %>
+        <% end %>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
