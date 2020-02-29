@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 <h1 class="label">検索結果</h1>
 
+<% if @events.size == 0 %>
+    <p style="text-align:right">検索結果は0件でした</p>
+<% else %>
+    <!--検索件数を表示-->
+<%end %>
+
 <% @events.each do |event| %>
     <div class="card mb-3" id="searchResultCard">
         <div class="row no-gutters">

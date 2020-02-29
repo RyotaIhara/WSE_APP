@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #ユーザー
   resources :users
   #イベント
-  resources :events
+  resources :events, :except => :index
   get 'search_event' => 'events#search'
   #ログイン機能
   get 'login' => 'sessions#new'
