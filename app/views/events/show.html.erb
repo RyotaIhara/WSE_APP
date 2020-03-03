@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1 class="label">企画の詳細</h1>
+<h1 class="label">イベントの詳細</h1>
 
 <p><%= image_tag @event.image_url, :size =>'840x500' %></p>
 
@@ -46,4 +46,7 @@
 <% if @event.user_id == current_user.id %>
     <%= link_to '編集', edit_event_path(@event), :class => 'btn btn-primary' %>
     <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に削除しますか?' }, :class => 'btn btn-primary' %>
+<% else %>
+    <%= link_to '参加', participant_path(event_id: @event.id), :class => 'btn btn-primary' %>
+    <%= link_to '不参加', non_participant_path(event_id: @event.id), :class => 'btn btn-primary' %>
 <% end %>

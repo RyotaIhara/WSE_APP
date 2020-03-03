@@ -7,11 +7,6 @@ class EventsController < ApplicationController
         @homeEvents = Event.all
     end
 
-    #一覧表示
-    def index
-        @events = Event.all
-    end
-
     #検索
     def search
         @events = Event.where(['competition LIKE ? OR 
@@ -26,6 +21,20 @@ class EventsController < ApplicationController
                                 "%#{params[:search_key]}%",
                                 "%#{params[:search_key]}%",
                                 "%#{params[:search_key]}%"])
+    end
+
+    #申し込み中のイベント
+    def applyingEvent
+        event_ids  = []
+        @participants = Participant.where(user_id: current_user.id)
+        @participants.find_each do |participant|
+            event_ids.push(participant.event_id)
+        end
+        @events = Event.where( "id IN (?)", event_ids )
+    end
+
+    #過去に参加したイベント
+    def participantedEvent
     end
 
     #自分主催のイベント
