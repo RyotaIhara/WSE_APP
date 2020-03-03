@@ -35,14 +35,14 @@
     <div class="col-2"></div>
 <% end %>
 <hr>
-<h1 class="label" id="recommendEvent">おすすめのイベント</h1>
 <!--検索フォーム終了-->
 
-<!--カードコレクション開始-->
+<!--おすすめイベント開始-->
+<h1 class="label" id="recommendEvent">おすすめのイベント</h1>
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
-            <% @events.each do |event| %>
+            <% @recomemdEvents.each do |event| %>
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
                         <%= image_tag event.image.to_s, :height =>'220' %>
@@ -59,7 +59,7 @@
         </div>
     </div>
 </div>
-<!--カードコレクション終了-->
+<!--おすすめイベント終了-->
 
 <!--フッター開始-->
 <!--フッター終了-->

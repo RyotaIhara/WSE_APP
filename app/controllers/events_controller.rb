@@ -3,8 +3,8 @@ class EventsController < ApplicationController
 
     #メイン画面
     def main
-        @events = Event.all
-        @homeEvents = Event.all
+        @recomemdEvents = Event.where.not(image: nil).order('number_applicants DESC').limit(9)
+        @homeEvents = Event.where.not(image: nil).order('created_at DESC').limit(3)
     end
 
     #検索
