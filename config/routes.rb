@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # 参加機能
   get '/participant' => 'participants#participantEvent'              #イベント参加
   get '/non_participant' => 'participants#nonParticipationEvent'     #イベント参加キャンセル
+  #参加者取得機能
+  get '/participant_member' => 'participants#participantIndex'
+  post '/confirm_participant' => 'participants#confirmEvent'
 end

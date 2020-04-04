@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1 class="label">イベントの参加者一覧</h1>
+
+<%= link_to 'イベントの一覧に戻る', my_event_path, :class => 'btn btn-primary' %>
+
+<%= form_with(url: confirm_participant_path, local: true) do |form| %>
+    <table class="table">
+        <tr>
+            <th>氏名</th>
+            <th>性別</th>
+            <!--<th></th>-->
+            <th>参加キャンセル</th>
+        </tr>
+        <% @participants.each do |participant| %>
+            <tr>
+                <td><%= participant.user.name %></td>
+                <td><%= participant.user.sex == 1 ? "男" : "女" %></td>
+                <!--<td>
+                    <%= form.check_box :participated_flg %>
+                    <%= form.label :participated_flg, "参加確定" %>
+                </td>-->
+                <td><%= participant.delete_flg? ? "キャンセル" : "-" %></td>
+            </tr>
+        <% end %>
+     </table>
+    <div class="actions">
+        <%= form.submit("保存", class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %>
+    </div>
+<% end %>
