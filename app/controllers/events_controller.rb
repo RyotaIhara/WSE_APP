@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :require_login, only: [:new, :myEvent, :edit, :create, :update, :destroy]
+    before_action :require_login, only: [:new, :myEvent, :edit, :create, :update, :destroy, :applyingEvent]
 
     #メイン画面
     def main
